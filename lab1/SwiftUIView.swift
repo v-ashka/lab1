@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct MyTField: View {
+    @Binding var text: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Podaj kolor")
+            TextField("Napisz cos", text: $text)
+        }.background(.green)
+            .padding(30)
     }
 }
 
-#Preview {
-    SwiftUIView()
+struct MyTField_Previews: PreviewProvider {
+    static var previews: some View {
+        MyTField(text: .constant(""))
+    }
 }
